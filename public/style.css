@@ -1,0 +1,180 @@
+html
+{
+    background-color: #ededed;
+}
+
+
+
+.body
+{
+    margin-top: 80px;
+    min-height: calc(100vh - 80px);
+}
+
+.page-link
+{
+    cursor: pointer;
+    font-size: medium;
+}
+
+.page-link-div
+{
+    margin: 5px;
+    line-height: 60px;
+}
+
+.page-links
+{
+    display: flex;
+    flex-direction: row;
+    width: 100vw;
+    height: 70px;
+    justify-content: start;
+    text-align: center;
+    background-color: #dadada;
+}
+
+.nav-bar
+{
+    border-bottom: 1px solid rgb(197, 197, 197);
+    position: fixed;
+    top: 0;
+}
+
+.page-link-selected-div
+{
+    padding-bottom: 4px;
+    border-bottom: 3px solid blueviolet;
+}
+
+.page-link-selected
+{
+    color: blueviolet;  
+}
+.wrapper
+{
+    display: flex;
+    flex-direction: row;
+    min-height: calc(100vh - 80px);
+}
+.content-div
+{
+    display: flex;
+    min-height: calc(100vh - 80px);
+    width: 80vw;
+    flex-direction: column;
+}
+.filter-div
+{
+    display: flex;
+    min-height: calc(100vh - 80px);
+    width: 20vw;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+.card-info-div > span
+{
+    font-size: 11px;
+    /* padding: 0 4px;
+    border-left: 1px solid black; */
+}
+
+.info-first
+{
+    border-left: 0px;
+    padding: 0 4px;
+}
+
+.info-middle
+{
+    border-left: 1px solid black;
+    padding: 0 4px;
+    
+}
+
+
+.info-last
+{
+    border-left: 1px solid black;
+    padding: 0 4px;
+}
+
+
+.card-img > img
+{
+    width: 160px;
+    height: 120px;
+    border-top-left-radius: 2px;
+    border-bottom-left-radius: 2px;
+}
+
+.card
+{
+    display: flex;
+    flex-direction: row;
+    background-color: #FFFEF5;
+    width: calc(100% - 100px);
+    height: 120px;
+    border-radius: 2px;
+}
+.card-a
+{
+    height: 120px;
+    width: 100%;
+    /* margin: 5px; */
+    margin: 5px 50px;
+}
+.card-text
+{
+    margin-left: 10px;
+    margin-top: 5px;
+}
+
+.title-div
+{
+    width: calc(100% - 30px);
+    height: 50px;
+    line-height: 50px;
+    margin-left: 30px;
+}
+.title
+{
+    font-size: large;
+}
+
+
+
+.footer-copyright-text {
+    color: #fff;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 18px;
+    margin-bottom: 0;
+    margin-top: 0;
+}
+
+  .footer-copyright-link {
+    color: #fff;
+    text-decoration: none;
+}
+
+.footer-content {
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+}
+
+.footer-copyright-wrapper {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1200px;
+}
+
+.footer-copyright {
+    background-color: gray;
+    color: #fff;
+    padding: 15px 30px;
+    text-align: center;
+}
+
