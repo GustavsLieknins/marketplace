@@ -12,17 +12,17 @@ return new class extends Migration
     public function up(): void
     {
 
-        Schema::create('engine_volume', function (Blueprint $table) {
+        Schema::create('engine_volumes', function (Blueprint $table) {
             $table->id();
             $table->string('engine_volume');
         });
 
-        Schema::create('location', function (Blueprint $table) {
+        Schema::create('locations', function (Blueprint $table) {
             $table->id();
             $table->string('location');
         });
 
-        Schema::create('fuel', function (Blueprint $table) {
+        Schema::create('fuels', function (Blueprint $table) {
             $table->id();
             $table->string('fuel');
         });
@@ -48,18 +48,16 @@ return new class extends Migration
             $table->string('color');
             $table->date('teh_apskate')->nullable();;
             $table->string('image_path');
-            $table->string('extras')->nullable();
             $table->integer('price');
             $table->string('num_plate')->unique();
             $table->string('vin')->unique();
             $table->string('model');
             
-            $table->foreignId('engine_volume')->constrained('engine_volume');
-            $table->foreignId('location')->constrained('location');
-            $table->foreignId('fuel')->constrained('fuel');
-            $table->foreignId('transmission')->constrained('transmissions');
-            $table->foreignId('brand')->constrained('brands');
-            $table->foreignId('phone_number')->constrained('users');
+            $table->foreignId('engine_volume_id')->constrained('engine_volumes');
+            $table->foreignId('location_id')->constrained('locations');
+            $table->foreignId('fuel_id')->constrained('fuels');
+            $table->foreignId('transmission_id')->constrained('transmissions');
+            $table->foreignId('brand_id')->constrained('brands');
             $table->foreignId('created_by')->constrained('users');
             $table->rememberToken();
             $table->timestamps();
@@ -75,5 +73,11 @@ return new class extends Migration
     {
         Schema::dropIfExists('listings');
         Schema::dropIfExists('brands');
+        Schema::dropIfExists('engine_volumes');
+        Schema::dropIfExists('locations');
+        Schema::dropIfExists('fuels');
     }
 };
+
+
+

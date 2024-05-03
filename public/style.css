@@ -23,15 +23,22 @@ html
     line-height: 60px;
 }
 
+.page-link-div:hover > p
+{
+    color: blueviolet;
+}
+
 .page-links
 {
     display: flex;
+    position: relative;
     flex-direction: row;
-    width: 100vw;
+    width: calc(100vw );
     height: 70px;
     justify-content: start;
     text-align: center;
     background-color: #dadada;
+    padding-left: 30px;
 }
 
 .nav-bar
@@ -39,6 +46,7 @@ html
     border-bottom: 1px solid rgb(197, 197, 197);
     position: fixed;
     top: 0;
+    z-index: 9;
 }
 
 .page-link-selected-div
@@ -54,7 +62,7 @@ html
 .wrapper
 {
     display: flex;
-    flex-direction: row;
+    /* flex-direction: column; */
     min-height: calc(100vh - 80px);
 }
 .content-div
@@ -121,7 +129,7 @@ html
 .card-a
 {
     height: 120px;
-    width: 100%;
+    width: calc(100% - 50px);
     /* margin: 5px; */
     margin: 5px 50px;
 }
@@ -137,13 +145,100 @@ html
     height: 50px;
     line-height: 50px;
     margin-left: 30px;
+    height: 50px;
 }
 .title
 {
     font-size: large;
 }
 
+.create-listing-wrapper
+{
+    display: flex;
+    position: relative;
+    width: calc(100vw - 50px);
+    height: 50px;
+    z-index: 1;
+}
 
+.create-listing-wrapper > a
+{
+    display: flex;
+    position: absolute;
+    right: 0;
+    color: green;
+    text-decoration: underline;
+}
+
+
+.no-listings > p > a
+{
+    color: green;
+    text-decoration: underline;
+}
+.user-div
+{
+    display: flex;
+    position: relative;
+    flex-direction: row;
+}
+
+.user-icon-noselected
+{
+    content:url(/img/user-icon-noselected.svg);
+}
+.user-username
+{
+    transition: all 0.1s;
+}
+
+.user-icon-selected
+{
+    content:url(/img/user-icon-selected.svg);
+}
+
+.user-div:hover > .user-icon-noselected
+{
+    
+    content:url(/img/user-icon-selected.svg);
+}
+
+.user-div:hover > .user-username
+{
+    color: blueviolet;
+}
+
+.right-link
+{
+    position: absolute;
+    right: 0;
+    margin-right: 30px;
+}
+
+.right-link-div > button
+{
+    color: rgb(210, 43, 43);
+    font-weight: 500;
+    transition: all 0.1s;
+}
+
+.right-link-div:hover > button
+{
+    color: rgb(255, 0, 0);
+    /* transition: all 0.1s; */
+}
+
+.settings-link
+{
+    margin-right: 90px;
+}
+
+
+.listings-wrapper
+{
+    display: flex;
+    flex-direction: column;
+}
 
 .footer-copyright-text {
     color: #fff;
