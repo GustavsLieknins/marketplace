@@ -1,4 +1,4 @@
-<a href="" class="card-a">
+<a href="/listing/{{$listing->id}} " class="card-a">
     <div class="card">
         <div class="card-img">
             <img src="{{ $listing->image_path }}" alt="hey">

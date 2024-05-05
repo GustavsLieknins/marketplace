@@ -31,7 +31,6 @@ class ListingsFactory extends Factory
             'fuel_id' => 1,
             'transmission_id' => 2,
             'brand_id' => 2,
-            'phone_number' => 1,
             'created_by' => 1,
         ];
     }

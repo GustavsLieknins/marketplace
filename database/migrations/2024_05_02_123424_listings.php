@@ -15,27 +15,46 @@ return new class extends Migration
         Schema::create('engine_volumes', function (Blueprint $table) {
             $table->id();
             $table->string('engine_volume');
+            $table->timestamps();
         });
 
         Schema::create('locations', function (Blueprint $table) {
             $table->id();
             $table->string('location');
+            $table->timestamps();
         });
 
         Schema::create('fuels', function (Blueprint $table) {
             $table->id();
             $table->string('fuel');
-        });
-
-
-        Schema::create('brands', function (Blueprint $table) {
-            $table->id();
-            $table->string('brand');
+            $table->timestamps();
         });
 
         Schema::create('transmissions', function (Blueprint $table) {
             $table->id();
             $table->string('transmission');
+            $table->timestamps();
+        });
+
+
+
+        Schema::create('brands', function (Blueprint $table) {
+            $table->id();
+            $table->string('brand');
+            $table->timestamps();
+        });
+
+        Schema::create('car_models', function (Blueprint $table) {
+            $table->id();
+            $table->string('car_model');
+            $table->foreignId('brand_id')->constrained('brands');
+            $table->timestamps();
+        });
+
+        Schema::create('colors', function (Blueprint $table) {
+            $table->id();
+            $table->string('color');
+            $table->timestamps();
         });
 
 
@@ -45,18 +64,18 @@ return new class extends Migration
             $table->string('description');
             $table->date('manufacture_date');
             $table->integer('mileage');
-            $table->string('color');
             $table->date('teh_apskate')->nullable();;
             $table->string('image_path');
             $table->integer('price');
             $table->string('num_plate')->unique();
             $table->string('vin')->unique();
-            $table->string('model');
             
             $table->foreignId('engine_volume_id')->constrained('engine_volumes');
             $table->foreignId('location_id')->constrained('locations');
             $table->foreignId('fuel_id')->constrained('fuels');
             $table->foreignId('transmission_id')->constrained('transmissions');
+            $table->foreignId('car_model_id')->constrained('car_models');
+            $table->foreignId('color_id')->constrained('colors');
             $table->foreignId('brand_id')->constrained('brands');
             $table->foreignId('created_by')->constrained('users');
             $table->rememberToken();

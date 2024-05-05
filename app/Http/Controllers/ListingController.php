@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Brand;
+use App\Models\Color;
 use App\Models\Engine_volume;
 use App\Models\Fuel;
+use App\Models\Car_model;
 use App\Models\Listings;
 use App\Models\Location;
 use App\Models\Transmission;
@@ -14,30 +16,35 @@ class ListingController extends Controller
 {
     public function create() {
 
+        $models = Car_model::all();
+        $colors = Color::all();
         $brands = Brand::all();
         $engine_volumes = Engine_volume::all();
         $fuels = Fuel::all();
         $locations = Location::all();
         $transmissions = Transmission::all();
 
-        return view("add-listings", ["brands" => $brands, "engine_volumes" => $engine_volumes, "fuels" => $fuels, "locations" => $locations, "transmissions" => $transmissions]);
+        return view("add-listings", ["models" => $models, 'colors' => $colors, "brands" => $brands, "engine_volumes" => $engine_volumes, "fuels" => $fuels, "locations" => $locations, "transmissions" => $transmissions]);
     }
 
-    public function store(Request $request, Listings $listings) {
-        var_dump($request->all());
+    public function store(Request $request)
+    {
+        if ($request->has('brand_id') && $request->car_model_id == null) {
+            return back()->withInput($request->input());
+        }
         $request->validate(
             [
                 "title" => ["required", "min:3", "max:50"],
                 "description" => ["required", "min:5", "max:255"],
-                "model" => ["required", "min:3", "max:50"],
                 "price" => ["required", "numeric"],
                 "manufacture_date" => ["required", "date"],
                 "mileage" => ["required", "numeric"],
-                "color" => ["required", "min:3", "max:50"],
                 "teh_apskate" => ["required", "date"],
                 "image_path" => ["required", "image", "max:10240"],
                 "num_plate" => ["required", "min:3", "max:50"],
                 "vin" => ["required", "min:3", "max:100"],
+                "color_id" => 'required|exists:App\Models\Color,id',
+                "car_model_id" => 'required|exists:App\Models\Car_model,id',
                 'engine_volume_id' => 'required|exists:App\Models\Engine_volume,id',
                 'location_id' => 'required|exists:App\Models\Location,id',
                 'fuel_id' => 'required|exists:App\Models\Fuel,id',
@@ -45,13 +52,14 @@ class ListingController extends Controller
                 'brand_id' => 'required|exists:App\Models\Brand,id',
             ]
         );
+        $listings = new Listings();
         $listings->title = $request->title;
         $listings->description = $request->description;
-        $listings->model = $request->model;
+        $listings->car_model_id = $request->car_model_id;
         $listings->price = $request->price;
         $listings->manufacture_date = $request->manufacture_date;
         $listings->mileage = $request->mileage;
-        $listings->color = $request->color;
+        $listings->color_id = $request->color_id;
         $listings->teh_apskate = $request->teh_apskate;
         $listings->num_plate = $request->num_plate;
         $listings->vin = $request->vin;
@@ -77,5 +85,34 @@ class ListingController extends Controller
 
         return redirect("/index");
     }
+
+
+
+    
+    public function show($id) {
+
+        
+        $brands = Brand::all();
+        $engine_volumes = Engine_volume::all();
+        $fuels = Fuel::all();
+        $locations = Location::all();
+        $transmissions = Transmission::all();
+
+        $listing = Listings::find($id);
+        
+        if (isset($listing)) {
+            return view("listing-show", ["listing" => $listing, "brands" => $brands, "engine_volumes" => $engine_volumes, "fuels" => $fuels, "locations" => $locations, "transmissions" => $transmissions]);
+        }
+
+        return redirect("/index");
+        // Uztaisīt skatu View vienam produktam un
+        // izsaukt to no kontroliera
+        
+    }
+
+
+
+
+
 
 }

@@ -9,6 +9,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('/index');
 });
+
+Route::get("/listing/{id}", [ListingController::class, "show"]);
 //return view('index')
 // Route::get('/index', [IndexController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
 Route::get('/index', [IndexController::class, 'index'])->name('dashboard');
@@ -22,6 +24,8 @@ Route::middleware('auth')->group(function () {
 
     Route::get("/create-listing", [ListingController::class, "create"])->middleware("auth");
     Route::post("/create", [ListingController::class, "store"])->middleware("auth");
+
+
     
 });
 
