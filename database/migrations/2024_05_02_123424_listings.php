@@ -83,6 +83,14 @@ return new class extends Migration
         });
 
 
+        Schema::create('reports', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('user_id')->constrained('users');
+            $table->foreignId('listing_id')->constrained('listings');
+            $table->timestamps();
+        });
+
+
     }
 
     /**

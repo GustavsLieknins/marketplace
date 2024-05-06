@@ -4,15 +4,14 @@
             {{ __('Dashboard') }}
         </h2>
     </x-slot>
-    <div class="show-listedon-wrapper">
-        <div class="show-listedon-div">
-            <p class="show-listedon-text">Date {{ $listing->created_at }}</p>
-        </div>
-    </div>
     <div class="wrapper">
         <div class="show-wrapper">
             <div class="img-wrapper">
                 <div class="show-img-div">
+                    <div class="show-title-div">
+                        <h1 class="show-title">{{ $listing->title }}</h1>
+                        <p class="listed-on">Listed {{ $listing->created_at }}</p>
+                    </div>
                     <img src="{{ $listing->image_path}}" alt="car-photo">
                 </div>
             </div>
@@ -48,9 +47,25 @@
                         <span class="car-info-last"></span>
                     </li>
                 </ul>
+                <div class="contact-wrapper">
+                    <div class="contact-div">
+                        <p class="contact-info">Phone number: {{ $users[$listing->created_by - 1]->phone_number }}</p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
+    @auth
+        <div class="show-listedon-wrapper">
+            <div class="show-listedon-div">
+                <form action="/report/{{ $listing->id }}" method="POST">
+                @csrf
+                    <input type="hidden" name="created_by" value="{{ Auth::user()->id }}">
+                    <button class="show-listedon-text">Report</button>
+                </form>
+            </div>
+        </div>
+    @endauth
    <div class="footer-copyright">
    <div class="footer-copyright-wrapper">
    <div class="footer-content">

@@ -4,12 +4,13 @@ use App\Http\Controllers\ListingController;
 use App\Http\Controllers\ProfileSettingsController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\IndexController;
+use App\Http\Controllers\ReportController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('/index');
 });
-
+// /report/{{ $listing->id }}
 Route::get("/listing/{id}", [ListingController::class, "show"]);
 //return view('index')
 // Route::get('/index', [IndexController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
@@ -24,6 +25,9 @@ Route::middleware('auth')->group(function () {
 
     Route::get("/create-listing", [ListingController::class, "create"])->middleware("auth");
     Route::post("/create", [ListingController::class, "store"])->middleware("auth");
+
+    
+    Route::post("/report/{id}", [ReportController::class, "report"])->middleware("auth");
 
 
     

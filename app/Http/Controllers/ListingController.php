@@ -10,6 +10,7 @@ use App\Models\Car_model;
 use App\Models\Listings;
 use App\Models\Location;
 use App\Models\Transmission;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class ListingController extends Controller
@@ -105,11 +106,12 @@ class ListingController extends Controller
         $fuels = Fuel::all();
         $locations = Location::all();
         $transmissions = Transmission::all();
+        $users = User::all();
 
         $listing = Listings::find($id);
         
         if (isset($listing)) {
-            return view("listing-show", ["listing" => $listing, "models" => $models, 'colors' => $colors, "brands" => $brands, "engine_volumes" => $engine_volumes, "fuels" => $fuels, "locations" => $locations, "transmissions" => $transmissions]);
+            return view("listing-show", ["users" => $users,"listing" => $listing, "models" => $models, 'colors' => $colors, "brands" => $brands, "engine_volumes" => $engine_volumes, "fuels" => $fuels, "locations" => $locations, "transmissions" => $transmissions]);
         }
 
         return redirect("/index");
