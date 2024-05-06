@@ -60,7 +60,13 @@ class ListingController extends Controller
         $listings->manufacture_date = $request->manufacture_date;
         $listings->mileage = $request->mileage;
         $listings->color_id = $request->color_id;
-        $listings->teh_apskate = $request->teh_apskate;
+
+        if (new \DateTime($request->teh_apskate) < new \DateTime()) {
+            $listings->teh_apskate = null;
+        } else {
+            $listings->teh_apskate = $request->teh_apskate;
+        }
+
         $listings->num_plate = $request->num_plate;
         $listings->vin = $request->vin;
 
@@ -92,6 +98,8 @@ class ListingController extends Controller
     public function show($id) {
 
         
+        $models = Car_model::all();
+        $colors = Color::all();
         $brands = Brand::all();
         $engine_volumes = Engine_volume::all();
         $fuels = Fuel::all();
@@ -101,7 +109,7 @@ class ListingController extends Controller
         $listing = Listings::find($id);
         
         if (isset($listing)) {
-            return view("listing-show", ["listing" => $listing, "brands" => $brands, "engine_volumes" => $engine_volumes, "fuels" => $fuels, "locations" => $locations, "transmissions" => $transmissions]);
+            return view("listing-show", ["listing" => $listing, "models" => $models, 'colors' => $colors, "brands" => $brands, "engine_volumes" => $engine_volumes, "fuels" => $fuels, "locations" => $locations, "transmissions" => $transmissions]);
         }
 
         return redirect("/index");
