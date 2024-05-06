@@ -39,7 +39,7 @@
                         <span>Vin: <span class="car-info-info">{{ $listing->vin }}</span></span>
                     </li>
                     <li>
-                        <span>Technical inspection: <span class="car-info-info">{{ $listing->teh_apskate }}</span></span>
+                        <span>Technical inspection: <span class="car-info-info">{{ $listing->teh_apskate ? $listing->teh_apskate : 'No teh inspection' }}</span></span>
                         <span>Location: <span class="car-info-info">{{ $locations[$listing->location_id - 1]->location }}</span></span>
                     </li>
                     <li>
