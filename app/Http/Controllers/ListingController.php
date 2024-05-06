@@ -94,6 +94,20 @@ class ListingController extends Controller
     }
 
 
+    public function addView() {
+
+        
+        $models = Car_model::all();
+        $colors = Color::all();
+        $brands = Brand::all();
+        $engine_volumes = Engine_volume::all();
+        $fuels = Fuel::all();
+        $locations = Location::all();
+        $transmissions = Transmission::all();
+            return view("test", ["models" => $models, 'colors' => $colors, "brands" => $brands, "engine_volumes" => $engine_volumes, "fuels" => $fuels, "locations" => $locations, "transmissions" => $transmissions]);
+
+        
+    }
 
     
     public function show($id) {

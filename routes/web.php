@@ -29,6 +29,9 @@ Route::middleware('auth')->group(function () {
     
     Route::post("/report/{id}", [ReportController::class, "report"])->middleware("auth");
 
+    
+    Route::get("/add", [ListingController::class, "addView"])->middleware("auth");
+
 
     
 });

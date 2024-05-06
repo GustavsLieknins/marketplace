@@ -35,11 +35,11 @@
                         <span>Color: <span class="car-info-info">{{ $colors[$listing->color_id - 1]->color }}</span></span>
                     </li>
                     <li>
-                        <span>Number plate: <span class="car-info-info">{{ $listing->num_plate }}</span></span>
+                        <span>Num plate: <span class="car-info-info">{{ $listing->num_plate }}</span></span>
                         <span>Vin: <span class="car-info-info">{{ $listing->vin }}</span></span>
                     </li>
                     <li>
-                        <span>Technical inspection: <span class="car-info-info">{{ $listing->teh_apskate ? $listing->teh_apskate : 'No teh inspection' }}</span></span>
+                        <span>Teh: <span class="car-info-info">{{ $listing->teh_apskate ? $listing->teh_apskate : 'No teh inspection' }}</span></span>
                         <span>Location: <span class="car-info-info">{{ $locations[$listing->location_id - 1]->location }}</span></span>
                     </li>
                     <li>

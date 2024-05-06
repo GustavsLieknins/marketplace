@@ -311,6 +311,7 @@ html
 }
 .show-text > ul > li > span
 {
+    display: flex;
     word-wrap: break-word;
     float: left;
     font-size: 17px;
@@ -318,6 +319,10 @@ html
     width: 50%;
     color: gray;
     border-bottom: 1px solid black;
+    align-items: center;
+    flex-direction: row;
+    overflow: hidden;
+    white-space: nowrap;
 }
 
 .car-info-info
@@ -325,6 +330,7 @@ html
     color: black;
     font-size: 15px;
     font-weight: 500;
+    margin-left: 5px;
 }
 
 .car-info-first
@@ -393,6 +399,57 @@ html
     padding: 0px 5px;
     color: red;
     
+}
+
+.add-title-input
+{
+    border-color: transparent !important;
+    background-color: transparent !important;
+    width: 100%;
+    word-break: break-word;
+    overflow-wrap: break-word;
+    resize: none;
+    min-height: 30px;
+    max-height: 100px;
+    height: fit-content;
+}
+.add-title-input:focus
+{
+    box-shadow: none !important;
+}
+
+.add-text-input
+{
+    background: transparent !important;
+    border-color: transparent !important;
+    /* height: 36px; */
+    /* width: 10px; */
+    /* line-height: 30px; */
+}
+
+.add-text-input:focus
+{
+    box-shadow: none !important;
+}
+
+select
+{
+    background: transparent !important;
+    border-color: transparent !important;
+}
+
+.img-preview-div
+{
+    display: flex;
+    position: relative;
+}
+.image_input
+{
+    cursor: pointer;
+    opacity: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
 }
 
 .footer-copyright-text {
