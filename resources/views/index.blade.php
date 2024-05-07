@@ -6,6 +6,7 @@
     </x-slot>
     <div class="title-div">
         <h1 class="title">Available cars</h1>
+        
     </div>
    <div class="wrapper">
     <div class="content-div">
@@ -162,6 +163,7 @@
         <h1>Hey</h1>
         <h1>Hey</h1>
     </div>
+    <div>{{ $listings->links() }}</div>
    </div>
    <div class="footer-copyright">
    <div class="footer-copyright-wrapper">

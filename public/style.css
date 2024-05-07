@@ -166,6 +166,7 @@ html
     position: absolute;
     right: 0;
     color: green;
+    font-weight: bold;
     text-decoration: underline;
 }
 
@@ -173,6 +174,7 @@ html
 .no-listings > p > a
 {
     color: green;
+    font-weight: bold;
     text-decoration: underline;
 }
 .user-div
@@ -333,6 +335,11 @@ html
     margin-left: 5px;
 }
 
+.car-info-info > input
+{
+    cursor: pointer;
+}
+
 .car-info-first
 {
     margin-top: 30px;
@@ -450,6 +457,63 @@ select
     position: absolute;
     width: 100%;
     height: 100%;
+}
+
+span > a
+{
+    
+    z-index: 9;
+}
+.show-inner-a
+{
+    display: flex;
+    z-index: 10;
+}
+.show-edit-options
+{
+    display: flex;
+    margin-left: auto;
+    margin-right: 11px;
+    width: max-content;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.show-edit-options > div
+{
+    display: flex;
+    margin: 9px;
+}
+.show-inner-a
+{
+    font-weight: bold;
+    text-decoration: underline;
+}
+.show-inner-a-edit
+{
+    color: blue;
+}
+
+.show-inner-a-delete
+{
+    color: red;
+}
+
+.add-car-button-div
+{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+.add-car-button-div > button
+{
+    background-color: rgb(0, 219, 0);
+    font-weight: bold;
+    padding: 5px;
+    border-radius: 5px;
 }
 
 .footer-copyright-text {

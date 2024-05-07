@@ -18,7 +18,7 @@
                 <a href="create-listing" class="create-listing">Create listing</a>
             </div>
             @foreach($listings as $listing)
-                    <x-car-card :listing="$listing" :users="$users" :brands="$brands"	:engine_volumes="$engine_volumes" :fuels="$fuels"  :locations="$locations" :transmissions="$transmissions"	/>
+                    <x-profile-car-card :listing="$listing" :users="$users" :brands="$brands"	:engine_volumes="$engine_volumes" :fuels="$fuels"  :locations="$locations" :transmissions="$transmissions"	/>
             @endforeach
         </div>
     @endif

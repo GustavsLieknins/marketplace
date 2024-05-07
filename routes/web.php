@@ -31,6 +31,11 @@ Route::middleware('auth')->group(function () {
 
     
     Route::get("/add", [ListingController::class, "addView"])->middleware("auth");
+    
+    Route::get("/listing/{id}/edit", [ListingController::class, "edit"])->middleware("auth");
+    Route::put("/listing/{id}", [ListingController::class, "update"])->middleware("auth");
+    
+    Route::delete("/listing/{id}", [ListingController::class, "destroy"])->middleware("auth");
 
 
     
