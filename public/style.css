@@ -71,14 +71,7 @@ html
     width: 80vw;
     flex-direction: column;
 }
-.filter-div
-{
-    display: flex;
-    min-height: calc(100vh - 80px);
-    width: 20vw;
-    flex-wrap: wrap;
-    flex-direction: column;
-}
+
 
 .card-info-div > span
 {
@@ -515,6 +508,61 @@ span > a
     padding: 5px;
     border-radius: 5px;
 }
+
+.page-switch-wrapper
+{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    align-items: flex-end;
+    justify-content: center;
+    padding-bottom: 30px;
+}
+
+.page-switch-div > nav > div + div
+{
+    display: flex;
+    flex-direction: column-reverse;
+}
+.page-switch-div > nav > div + div > div
+{
+    margin-top: 5px;
+}
+
+.filter-wrapper
+{
+    display: flex;
+    min-height: calc(100vh - 80px);
+    width: 20vw;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+}
+
+.filter-div
+{
+    padding: 5px;
+    height: max-content;
+}
+
+.filter-div > select
+{
+    width: 16vw;
+    border: 1px solid black !important;
+}
+
+.filter-div > input
+{
+    width: 16vw;
+}
+
+.sub-but-div
+{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
 
 .footer-copyright-text {
     color: #fff;

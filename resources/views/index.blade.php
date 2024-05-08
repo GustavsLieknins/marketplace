@@ -13,158 +13,66 @@
         @foreach($listings as $listing)
             <x-car-card :listing="$listing" :users="$users" :brands="$brands"	:engineVolumes="$engineVolumes" :fuels="$fuels"  :locations="$locations" :transmissions="$transmissions"	/>
         @endforeach
-
-
-            <a href="" class="card-a">
-                <div class="card">
-                    <div class="card-img">
-                        <img src="\img\Opel_Mokka.jpg" alt="hey">
-                    </div>
-                    <div class="card-text">
-                        <h1 class="card-title">Title</h1>
-                        <h1 class="card-price">1500€</h1>
-                        <div class="card-info">
-                            <div class="card-info-div">
-                                <span class="info-first">Milage</span>
-                                <span class="info-middle">Fuel</span>
-                                <span class="info-last">Tilpums</span>
-                            </div>
-                            <div class="card-info-div">
-                                <span class="info-first">Transmission</span>
-                                <span class="info-last">Where</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </a>
-            <a href="" class="card-a">
-                <div class="card">
-                    <div class="card-img">
-                        <img src="\img\Opel_Mokka.jpg" alt="hey">
-                    </div>
-                    <div class="card-text">
-                        <h1 class="card-title">Title</h1>
-                        <h1 class="card-price">1500€</h1>
-                        <div class="card-info">
-                            <div class="card-info-div">
-                                <span class="info-first">Milage</span>
-                                <span class="info-middle">Fuel</span>
-                                <span class="info-last">Tilpums</span>
-                            </div>
-                            <div class="card-info-div">
-                                <span class="info-first">Transmission</span>
-                                <span class="info-last">Where</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </a>
-            <a href="" class="card-a">
-                <div class="card">
-                    <div class="card-img">
-                        <img src="\img\Opel_Mokka.jpg" alt="hey">
-                    </div>
-                    <div class="card-text">
-                        <h1 class="card-title">Title</h1>
-                        <h1 class="card-price">1500€</h1>
-                        <div class="card-info">
-                            <div class="card-info-div">
-                                <span class="info-first">Milage</span>
-                                <span class="info-middle">Fuel</span>
-                                <span class="info-last">Tilpums</span>
-                            </div>
-                            <div class="card-info-div">
-                                <span class="info-first">Transmission</span>
-                                <span class="info-last">Where</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </a>
-            <a href="" class="card-a">
-                <div class="card">
-                    <div class="card-img">
-                        <img src="\img\Opel_Mokka.jpg" alt="hey">
-                    </div>
-                    <div class="card-text">
-                        <h1 class="card-title">Title</h1>
-                        <h1 class="card-price">1500€</h1>
-                        <div class="card-info">
-                            <div class="card-info-div">
-                                <span class="info-first">Milage</span>
-                                <span class="info-middle">Fuel</span>
-                                <span class="info-last">Tilpums</span>
-                            </div>
-                            <div class="card-info-div">
-                                <span class="info-first">Transmission</span>
-                                <span class="info-last">Where</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </a>
     </div>
-    <div class="filter-div">
-        <h1>Hey</h1>
-        <h1>Hey</h1>
-        <h1>Hey</h1>
-        <h1>Hey</h1>
-        <h1>Hey</h1>
-        <h1>Hey</h1>
-        <h1>Hey</h1>
-        <h1>Hey</h1>
-        <h1>Hey</h1>
-        <h1>Hey</h1>
-        <h1>Hey</h1>
-        <h1>Hey</h1>
-        <h1>Hey</h1>
-        <h1>Hey</h1>
-        <h1>Hey</h1>
-        <h1>Hey</h1>
-        <h1>Hey</h1>
-        <h1>Hey</h1>
-        <h1>Hey</h1>
-        <h1>Hey</h1>
-        <h1>Hey</h1>
-        <h1>Hey</h1>
-        <h1>Hey</h1>
-        <h1>Hey</h1>
-        <h1>Hey</h1>
-        <h1>Hey</h1>
-        <h1>Hey</h1>
-        <h1>Hey</h1>
-        <h1>Hey</h1>
-        <h1>Hey</h1>
-        <h1>Hey</h1>
-        <h1>Hey</h1>
-        <h1>Hey</h1>
-        <h1>Hey</h1>
-        <h1>Hey</h1>
-        <h1>Hey</h1>
-        <h1>Hey</h1>
-        <h1>Hey</h1>
-        <h1>Hey</h1>
-        <h1>Hey</h1>
-        <h1>Hey</h1>
-        <h1>Hey</h1>
-        <h1>Hey</h1>
-        <h1>Hey</h1>
-        <h1>Hey</h1>
-        <h1>Hey</h1>
-        <h1>Hey</h1>
-        <h1>Hey</h1>
-        <h1>Hey</h1>
-        <h1>Hey</h1>
-        <h1>Hey</h1>
-        <h1>Hey</h1>
-        <h1>Hey</h1>
-        <h1>Hey</h1>
-        <h1>Hey</h1>
-        <h1>Hey</h1>
-        <h1>Hey</h1>
+    <div class="filter-wrapper">
+    <form action="/filter">
+    @csrf
+        <div class="filter-div">
+            <select name="filter_engine_volume_id" id="" onchange="this.form.method='get'; this.form.submit()">
+                <option value="/seas">Select engine volume</option>
+                <option value="">Select value</option>
+                    @foreach ($engineVolumes as $engine_volume)
+                        <option value="{{$engine_volume->id}}" {{ old('engine_volume_id') == $engine_volume->id ? 'selected' : '' }}>{{ $engine_volume->engine_volume }}</option>
+                    @endforeach
+            </select>
+        </div>
+        <div class="filter-div">
+            <select name="filter_location_id" id= "" onchange="this.form.method='post'; this.form.submit()">
+                <option value="">Select location</option>
+            </select>
+        </div>
+        <div class="filter-div">
+            <select name="filter_fuel_id" id="" onchange="this.form.method='post'; this.form.submit()">
+                <option value="">Select fuel</option>
+            </select>
+        </div>
+        <div class="filter-div">
+            <select name="filter_transmission_id" id="" onchange="this.form.method='post'; this.form.submit()">
+                <option value="">Select</option>
+        </select>
+        </div>
+        <div class="filter-div">
+            <select name="filter_brand_id" id="" onchange="this.form.method='post'; this.form.submit()">>
+                <option value="">Select</option>
+            </select>
+        </div>
+        <div class="filter-div">
+            <select name="filter_car_model_id" id="" onchange="this.form.method='post'; this.form.submit()">>
+                <option value="">Select</option>
+            </select>
+        </div>
+        <div class="filter-div">
+            <select name="filter_color_id" id="" onchange="this.form.method='post'; this.form.submit()">>
+                <option value="">Select</option>
+            </select>
+        </div>
+        <div class="filter-div">
+            <input type="text" placeholder="Filter by keyword" name="filer_keyword">
+        </div>
+        <div class="filter-div">
+            <input type="number" placeholder="Filter by price" name="filer_price">
+        </div>
+        <div class="sub-but-div">
+            <button>Submit</button>
+        </div>
+    </form>
     </div>
-    <div>{{ $listings->links() }}</div>
    </div>
+   <div class="page-switch-wrapper">
+        <div class="page-switch-div">
+            {{ $listings->appends(['filter_engine_volume_id' => request('filter_engine_volume_id')])->links() }}
+        </div>
+    </div>
    <div class="footer-copyright">
    <div class="footer-copyright-wrapper">
    <div class="footer-content">

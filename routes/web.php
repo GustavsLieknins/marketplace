@@ -12,6 +12,8 @@ Route::get('/', function () {
 });
 // /report/{{ $listing->id }}
 Route::get("/listing/{id}", [ListingController::class, "show"]);
+
+Route::get('/filter', [IndexController::class, "filter"]);
 //return view('index')
 // Route::get('/index', [IndexController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
 Route::get('/index', [IndexController::class, 'index'])->name('dashboard');
