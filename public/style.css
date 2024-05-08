@@ -141,7 +141,8 @@ html
 }
 .title
 {
-    font-size: large;
+    font-weight: bold;
+    font-size: x-large;
 }
 
 .create-listing-wrapper
@@ -232,6 +233,7 @@ html
 {
     display: flex;
     flex-direction: column;
+    padding-bottom: 50px;
 }
 
 .show-wrapper
@@ -529,6 +531,15 @@ span > a
     margin-top: 5px;
 }
 
+.page-switch-div > nav > .hidden > div > .relative > span > span
+{
+    background-color: white;
+}
+.page-switch-div > nav > .hidden > div > .relative > a
+{
+    background-color: white;
+}
+
 .filter-wrapper
 {
     display: flex;
@@ -543,6 +554,7 @@ span > a
 {
     padding: 5px;
     height: max-content;
+    text-align: center;
 }
 
 .filter-div > select
@@ -556,6 +568,18 @@ span > a
     width: 16vw;
 }
 
+.filter-div > p
+{
+    font-weight: bold;
+}
+
+.filt-sub
+{
+    color: green;
+    font-size: larger;
+    font-weight: bold;
+}
+
 .sub-but-div
 {
     display: flex;
@@ -563,6 +587,18 @@ span > a
     justify-content: center;
 }
 
+.title-filters-div
+{
+    width: 100%;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.title-filters
+{
+    font-weight: bold;
+    font-size: x-large;
+}
 
 .footer-copyright-text {
     color: #fff;

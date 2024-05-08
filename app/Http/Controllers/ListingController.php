@@ -9,9 +9,11 @@ use App\Models\Fuel;
 use App\Models\Car_model;
 use App\Models\Listings;
 use App\Models\Location;
+use App\Models\Report;
 use App\Models\Transmission;
 use App\Models\User;
 use Illuminate\Http\Request;
+
 
 class ListingController extends Controller
 {
@@ -90,7 +92,7 @@ class ListingController extends Controller
 
         $listings->save();
 
-        return redirect("/index");
+        return redirect("/");
     }
 
 
@@ -128,7 +130,7 @@ class ListingController extends Controller
             return view("listing-show", ["users" => $users,"listing" => $listing, "models" => $models, 'colors' => $colors, "brands" => $brands, "engine_volumes" => $engine_volumes, "fuels" => $fuels, "locations" => $locations, "transmissions" => $transmissions]);
         }
 
-        return redirect("/index");
+        return redirect("/");
         // Uztaisīt skatu View vienam produktam un
         // izsaukt to no kontroliera
         
@@ -150,7 +152,7 @@ class ListingController extends Controller
             return view("listing-edit", ["users" => $users,"listing" => $listing, "models" => $models, 'colors' => $colors, "brands" => $brands, "engine_volumes" => $engine_volumes, "fuels" => $fuels, "locations" => $locations, "transmissions" => $transmissions]);
         }
 
-        return redirect("/index");
+        return redirect("/");
     }
 
     public function update(Request $request, $id) {
@@ -216,24 +218,22 @@ class ListingController extends Controller
 
         $listing->save();
 
-        return redirect("/index");
+        return redirect("/");
     }
     
 
-    public function destroy($id) {
+    public function destroy($id)
+    {
         $Listing = Listings::find($id);
         $imagePath = $Listing->image_path;
+        Report::where('listing_id', $id)->delete();
         $Listing->delete();
+
         if (file_exists(public_path($imagePath))) {
             unlink(public_path($imagePath));
         }
         return back();
     }
-
-
-
-
-
-
+    
 
 }

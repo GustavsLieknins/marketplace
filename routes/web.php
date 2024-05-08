@@ -7,16 +7,16 @@ use App\Http\Controllers\IndexController;
 use App\Http\Controllers\ReportController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('/index');
-});
+// Route::get('/', function () {
+//     return view('/index');
+// });
 // /report/{{ $listing->id }}
 Route::get("/listing/{id}", [ListingController::class, "show"]);
 
 Route::get('/filter', [IndexController::class, "filter"]);
 //return view('index')
 // Route::get('/index', [IndexController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
-Route::get('/index', [IndexController::class, 'index'])->name('dashboard');
+Route::get('/', [IndexController::class, 'index'])->name('dashboard');
 Route::middleware('auth')->group(function () {
     Route::get('/profile-settings', [ProfileSettingsController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile-settings', [ProfileSettingsController::class, 'update'])->name('profile.update');
