@@ -6,10 +6,16 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\ReportController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Foundation\Configuration\Middleware;
+use App\Http\Middleware\Admin;
 
 // Route::get('/', function () {
 //     return view('/index');
 // });
+
+Route::middleware(['auth', 'Admin'])->group(function () {
+    Route::view('/admin', 'Admin');
+});
 // /report/{{ $listing->id }}
 Route::get("/listing/{id}", [ListingController::class, "show"]);
 
