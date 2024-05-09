@@ -3966,6 +3966,9 @@ class DatabaseSeeder extends Seeder
                             39 =>
                                 array (
                                     'title' => 'Zafira Tourer'),
+                            40 =>
+                                array (
+                                    'title' => 'Crossland X'),
                         ),
                 ),
             77 =>
