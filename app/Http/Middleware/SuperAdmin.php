@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Illuminate\Support\Facades\Auth;
 
-class Admin
+class SuperAdmin
 {
     /**
      * Handle an incoming request.
@@ -22,7 +22,7 @@ class Admin
 
         $userRole=Auth::user()->role;
 
-        if($userRole==1 || $userRole==2){
+        if($userRole==2){
             return $next($request);
         }else
         {

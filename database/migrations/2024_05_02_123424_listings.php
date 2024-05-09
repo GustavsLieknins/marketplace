@@ -61,7 +61,7 @@ return new class extends Migration
         Schema::create('listings', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->string('description');
+            $table->text('description');
             $table->date('manufacture_date');
             $table->integer('mileage');
             $table->date('teh_apskate')->nullable();;

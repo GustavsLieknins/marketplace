@@ -6,21 +6,28 @@ use App\Http\Controllers\ProfileSettingsController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\ReportController;
+use App\Http\Controllers\SuperAdminController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Configuration\Middleware;
 use App\Http\Middleware\Admin;
 
 // Route::get('/', function () {
-//     return view('/index');   AdminController
+//     return view('/index');   AdminController   roleChange
 // });
 
 Route::middleware(['auth', 'Admin'])->group(function () {
     Route::get('/admin', [AdminController::class, 'index']);
     Route::get('/reports', [AdminController::class, 'reports']);
     Route::post('/listing/{id}/dismiss', [AdminController::class, 'dismiss']);
-
-
 });
+
+Route::middleware(['auth', 'SuperAdmin'])->group(function () {
+    Route::get('/superadmin', [SuperAdminController::class, 'index']);
+    Route::get('/superadmin/findUser', [SuperAdminController::class, 'findUser']);
+    Route::get('/superadmin/roleChange', [SuperAdminController::class, 'roleChange']);
+    Route::delete('/superadmin/userDelete', [SuperAdminController::class, 'userDelete']);
+});
+
 // /report/{{ $listing->id }}
 Route::get("/listing/{id}", [ListingController::class, "show"]);
 

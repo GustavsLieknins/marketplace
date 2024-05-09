@@ -5,11 +5,11 @@
         </h2>
     </x-slot>
     @if ($errors->any())
-    <ul style="">
+        <div class="validation">
       @foreach ($errors->all() as $err)
-          <li>{{ $err }}</li>
+        {{ $err }}<br>
       @endforeach
-    </ul>
+      </div>
   @endif
     <form method="POST" action="/listing/{{ $listing->id }}" enctype="multipart/form-data">
         @csrf

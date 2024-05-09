@@ -32,13 +32,13 @@ class ListingController extends Controller
 
     public function store(Request $request)
     {
-        if ($request->has('brand_id') && $request->car_model_id == null) {
+        if ($request->brand_id != null && $request->car_model_id == null) {
             return back()->withInput($request->input());
         }
         $request->validate(
             [
                 "title" => ["required", "min:3", "max:50"],
-                "description" => ["required", "min:5", "max:255"],
+                "description" => ["required", "min:5", "max:2024"],
                 "price" => ["required", "numeric"],
                 "manufacture_date" => ["required", "date"],
                 "mileage" => ["required", "numeric"],
@@ -158,10 +158,14 @@ class ListingController extends Controller
     public function update(Request $request, $id) {
         $listing = Listings::find($id);
 
+        if ($request->brand_id != null && $request->car_model_id == null) {
+            return back()->withInput($request->input());
+        }
+
         $request->validate(
             [
                 "title" => ["required", "min:3", "max:50"],
-                "description" => ["required", "min:5", "max:255"],
+                "description" => ["required", "min:5", "max:2024"],
                 "price" => ["required", "numeric"],
                 "manufacture_date" => ["required", "date"],
                 "mileage" => ["required", "numeric"],

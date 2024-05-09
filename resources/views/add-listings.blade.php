@@ -7,12 +7,12 @@
     <form method="POST" action="/create" enctype="multipart/form-data">
         @csrf
         @if ($errors->any())
-    <ul style="">
-      @foreach ($errors->all() as $err)
-          <li>{{ $err }}</li>
-      @endforeach
-    </ul>
-  @endif
+            <div class="validation">
+            @foreach ($errors->all() as $err)
+            {{ $err }}<br>
+            @endforeach
+            </div>
+        @endif
     <div class="wrapper">
         <div class="show-wrapper">
             <div class="img-wrapper">
