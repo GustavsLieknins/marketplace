@@ -9,14 +9,6 @@
                     <p>Cars</p>
                 </div>
             </x-nav-link>
-            @guest
-            <x-nav-link :href="route('login')" class="page-link {{ request()->routeIs('login') ? 'page-link-selected' : '' }}" >  
-                <div  class="page-link-div {{ request()->routeIs('login') ? 'page-link-selected-div' : '' }}">
-                    <p>Login</p>
-                    <!-- <img src="/img/user-icon-noselected.svg" alt="">  -->
-                </div>
-            </x-nav-link>
-            @endguest
             @auth
             <x-nav-link :href="route('profile.edit')" class="page-link {{ request()->routeIs('profile.edit') ? 'page-link-selected' : '' }}" >
                 <div  class="page-link-div {{ request()->routeIs('profile.edit') ? 'page-link-selected-div' : '' }}">
@@ -45,7 +37,15 @@
                 </div>
                 </div>
             </x-nav-link>
-            @endguest   
+            @endguest  
+            @guest
+            <x-nav-link :href="route('login')" class="right-link page-link {{ request()->routeIs('login') ? 'page-link-selected' : '' }}" >  
+                <div  class="page-link-div {{ request()->routeIs('login') ? 'page-link-selected-div' : '' }}">
+                    <p>Login</p>
+                    <!-- <img src="/img/user-icon-noselected.svg" alt="">  -->
+                </div>
+            </x-nav-link>
+            @endguest 
             @auth
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf

@@ -49,7 +49,15 @@
                 </ul>
                 <div class="contact-wrapper">
                     <div class="contact-div">
-                        <p class="contact-info">Phone number: {{ $users[$listing->created_by - 1]->phone_number }}</p>
+                        @auth
+                            <p class="contact-info">Phone number: {{ $users[$listing->created_by - 1]->phone_number }}</p>
+                        @endauth
+                        @guest
+                            <div class="contact-div-no-login">
+                                <p class="contact-info">Phone number: damn you realy tried</p>
+                                <div><a href="/login">Login in to view phone</a></div>
+                            </div>
+                        @endguest
                     </div>
                 </div>
             </div>

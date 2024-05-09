@@ -69,7 +69,6 @@ return new class extends Migration
             $table->integer('price');
             $table->string('num_plate')->unique();
             $table->string('vin')->unique();
-            $table->integer('user_role')->default(0);
             
             $table->foreignId('engine_volume_id')->constrained('engine_volumes');
             $table->foreignId('location_id')->constrained('locations');

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ListingController;
 use App\Http\Controllers\ProfileSettingsController;
 use App\Http\Controllers\ProfileController;
@@ -10,11 +11,15 @@ use Illuminate\Foundation\Configuration\Middleware;
 use App\Http\Middleware\Admin;
 
 // Route::get('/', function () {
-//     return view('/index');
+//     return view('/index');   AdminController
 // });
 
 Route::middleware(['auth', 'Admin'])->group(function () {
-    Route::view('/admin', 'Admin');
+    Route::get('/admin', [AdminController::class, 'index']);
+    Route::get('/reports', [AdminController::class, 'reports']);
+    Route::post('/listing/{id}/dismiss', [AdminController::class, 'dismiss']);
+
+
 });
 // /report/{{ $listing->id }}
 Route::get("/listing/{id}", [ListingController::class, "show"]);

@@ -118,7 +118,7 @@
             </div>
         </div>
     </div>
-        <input type="hidden" name="created_by" value="{{ Auth::user()->id }}">
+        <input type="hidden" name="created_by" value="{{ $listing->created_by }}">
         <input type="hidden" name="created_at" value="{{ $listing->created_at }}">
         <div class="add-car-button-div">
             <button type="submit" class="add-car-button">Save</button>

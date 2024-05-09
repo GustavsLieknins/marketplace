@@ -93,7 +93,7 @@
         </div>
         <div class="filter-div">
             <p>Price under</p>
-            <input type="number" placeholder="Type..." name="filer_price" value="{{ request('filer_price') }}">
+            <input type="number" min="0" step="any" placeholder="Type..." name="filer_price" value="{{ request('filer_price') }}">
         </div>
         <div class="sub-but-div">
             <button type="submit" class="filt-sub">Filter</button>

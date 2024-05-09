@@ -22,7 +22,7 @@
                 @endif
             </div>
             @foreach($listings as $listing)
-                    <x-profile-car-card :listing="$listing" :users="$users" :brands="$brands"	:engine_volumes="$engine_volumes" :fuels="$fuels"  :locations="$locations" :transmissions="$transmissions"	/>
+                    <x-reports-car-card :listing="$listing" :reports="$reports" :users="$users" :brands="$brands"	:engine_volumes="$engine_volumes" :fuels="$fuels"  :locations="$locations" :transmissions="$transmissions"	/>
             @endforeach
         </div>
     @endif
